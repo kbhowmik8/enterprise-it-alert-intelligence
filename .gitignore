@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Generated artefacts and local alert exports.
+# The blanket *.xlsx rule also guards against committing real ServiceNow dumps,
+# whose work notes are sensitive.
+*.xlsx
+alert_comparative_report.*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

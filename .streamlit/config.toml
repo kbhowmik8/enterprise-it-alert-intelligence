@@ -1,0 +1,9 @@
+# Pin the light theme: app.py's custom CSS hardcodes light metric cards
+# (#f4f7fa), which clash with Streamlit's auto dark mode on the viewer's OS.
+[theme]
+base = "light"
+
+[server]
+# Streamlit Community Cloud gives ~1 GB RAM and pandas holds the whole workbook
+# in memory, so the 200 MB default is an easy out-of-memory kill.
+maxUploadSize = 50

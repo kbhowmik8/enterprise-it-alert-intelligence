@@ -1,0 +1,20 @@
+# Local virtualenv: Windows binaries, useless and huge inside a Linux image.
+.venv/
+venv/
+env/
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+.git/
+.gitignore
+
+# Never bake alert exports into a shipped image; work notes are sensitive.
+*.xlsx
+alert_comparative_report.*
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

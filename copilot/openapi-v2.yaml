@@ -1,0 +1,28 @@
+swagger: '2.0'
+info:
+  title: Alert Intelligence API
+  version: '1.0'
+  description: Compare two weekly alert workbooks and return recurrence risks.
+host: REPLACE_WITH_INTERNAL_API_HOST
+basePath: /
+schemes: [https]
+consumes: [multipart/form-data]
+produces: [application/json]
+paths:
+  /health:
+    get:
+      operationId: health
+      summary: Check service health
+      responses:
+        '200': {description: Healthy}
+  /analyze:
+    post:
+      operationId: analyzeWeeklyAlerts
+      summary: Analyze previous and current weekly alert Excel files
+      description: Use when a user asks to compare weekly alert dumps, identify common factors, or forecast repeat alerts.
+      parameters:
+        - {name: previous_week, in: formData, required: true, type: file, description: Previous week XLSX}
+        - {name: current_week, in: formData, required: true, type: file, description: Current week XLSX}
+      responses:
+        '200': {description: Analysis completed}
+        '400': {description: Invalid workbook or missing columns}
