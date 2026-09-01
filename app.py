@@ -4,7 +4,7 @@ import io
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from analysis_engine import read_excel,normalize,summary,comparative,common_factors,keywords,forecast,build_excel,build_pdf
+from analysis_engine import read_excel,normalize,summary,comparative,common_factors,keywords,forecast,data_quality,build_excel,build_pdf
 
 st.set_page_config(page_title="Alert Intelligence", page_icon="📡", layout="wide",
                    initial_sidebar_state="collapsed")
@@ -243,12 +243,7 @@ def render_analysis():
     with tabs[4]:
         with st.container(border=True):
             st.markdown('<div class="sec">Data quality</div>', unsafe_allow_html=True)
-            q = pd.DataFrame({"week": ["Previous", "Current"], "rows": [len(prev), len(cur)],
-                              "missing_created": [prev.created_at.isna().sum(), cur.created_at.isna().sum()],
-                              "missing_updated": [prev.updated_at.isna().sum(), cur.updated_at.isna().sum()],
-                              "duplicate_alert_ids": [prev.alert_id.duplicated().sum(),
-                                                      cur.alert_id.duplicated().sum()]})
-            st.dataframe(q, width="stretch", hide_index=True)
+            st.dataframe(data_quality(prev, cur), width="stretch", hide_index=True)
         with st.container(border=True):
             st.markdown('<div class="sec">Export report</div>', unsafe_allow_html=True)
             xlsx, pdf = build_reports(d["prev_bytes"], d["cur_bytes"])

@@ -9,7 +9,7 @@ A privacy-first Streamlit dashboard plus FastAPI service for comparing previous-
 - Severity, criticality, group, CI, creation-time, update-time and reopen comparisons
 - Description/work-note keyword analysis
 - Transparent next-week recurrence risk ranked by alert signature
-- Excel and PDF exports
+- Excel and PDF exports covering every dashboard tab, with charts in both
 - Docker deployment with no required internet connection at runtime
 - REST API and OpenAPI v2 definition for a Microsoft Copilot Studio agent
  
