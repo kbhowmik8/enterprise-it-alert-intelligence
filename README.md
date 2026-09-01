@@ -44,7 +44,9 @@ This writes `alerts_previous_week.xlsx` and `alerts_current_week.xlsx` into the 
 For a blank workbook with the canonical headers instead, run `python create_template.py`.
 
 ### Run the API locally
+The dashboard does not need this. `api.py` and `app.py` are independent entry points over the same `analysis_engine.py`; the REST service exists only for the Copilot Studio agent.
 ```bash
+pip install -r requirements-api.txt
 uvicorn api:app --host 127.0.0.1 --port 8000
 ```
 Interactive docs at `http://localhost:8000/docs`.

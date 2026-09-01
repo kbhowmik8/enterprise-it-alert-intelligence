@@ -1,12 +1,10 @@
 
+# Dashboard only. Streamlit Community Cloud installs this file automatically.
+# The REST service for Copilot Studio has its own requirements-api.txt.
 streamlit==1.62.0
 pandas==3.0.5
 numpy==2.5.2
 plotly==7.0.0
 openpyxl==3.1.5
 reportlab==5.0.1
-fastapi==0.141.1
-uvicorn==0.52.4
-# Required at runtime by FastAPI to parse multipart file uploads, never imported directly.
-python-multipart==0.0.32
  

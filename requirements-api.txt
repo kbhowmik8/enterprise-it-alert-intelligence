@@ -1,0 +1,14 @@
+# REST service (api.py) for the Microsoft Copilot Studio agent.
+# Not needed to run the dashboard - see requirements.txt for that.
+# Kept self-contained rather than using "-r requirements.txt" so this image does
+# not pull in streamlit and plotly. The shared analysis-engine pins below must
+# stay in step with requirements.txt.
+pandas==3.0.5
+numpy==2.5.2
+openpyxl==3.1.5
+reportlab==5.0.1
+
+fastapi==0.141.1
+uvicorn==0.52.4
+# Required at runtime by FastAPI to parse multipart file uploads, never imported directly.
+python-multipart==0.0.32
