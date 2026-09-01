@@ -15,7 +15,9 @@ WEEK_COLORS = {"previous": "#a9c1d4", "current": "#1e6091"}
 
 st.markdown(f"""<style>
 .block-container{{padding-top:2rem;padding-bottom:3rem;max-width:1500px}}
-#MainMenu,footer{{visibility:hidden}}
+/* Community Cloud injects Fork and GitHub buttons into stToolbarActions when the source
+   repo is public. Hiding is cosmetic only - a public repo stays publicly readable. */
+[data-testid="stToolbarActions"],[data-testid="stMainMenu"],footer{{display:none}}
 .hero{{background:linear-gradient(120deg,#0f2b46 0%,#1e6091 58%,#2a9d8f 100%);border-radius:18px;
  padding:30px 36px;margin-bottom:26px;box-shadow:0 10px 30px rgba(15,43,70,.18)}}
 .hero .h{{margin:0 0 8px;font-size:2.05rem;font-weight:700;letter-spacing:-.5px;color:#fff}}
