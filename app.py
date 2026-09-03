@@ -85,6 +85,9 @@ def render_home():
       <span>Recurrence risk scoring</span><span>Excel &amp; PDF reports</span></div>
     </div>""", unsafe_allow_html=True)
 
+    st.warning("**Demonstration instance.** Use the synthetic sample data only. Do not upload real "
+               "alert exports or any other operational data.", icon="⚠️")
+
     if st.session_state.dataset:
         d = st.session_state.dataset
         a, b = st.columns([3, 1])
