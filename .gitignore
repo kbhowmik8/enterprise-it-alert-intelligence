@@ -1,3 +1,7 @@
+# Internal design docs. Kept out of the repo while it is public - these describe
+# EDF data flows and security posture and belong in Confluence, not on GitHub.
+docs/
+
 # Virtual environments
 .venv/
 venv/

@@ -6,7 +6,7 @@ import pandas as pd
 import plotly.express as px
 from analysis_engine import read_excel,normalize,summary,comparative,common_factors,keywords,forecast,data_quality,build_excel,build_pdf
 
-st.set_page_config(page_title="Alert Intelligence", page_icon="📡", layout="wide",
+st.set_page_config(page_title="Enterprise IT Alert Intelligence", page_icon="📡", layout="wide",
                    initial_sidebar_state="collapsed")
 
 INK, MUTED, BRAND = "#0f2b46", "#5b7189", "#1e6091"
@@ -39,6 +39,7 @@ st.markdown(f"""<style>
 .step{{font-size:.72rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:{BRAND}}}
 .ctitle{{font-size:1.06rem;font-weight:700;color:{INK};margin:3px 0 3px}}
 .csub{{font-size:.86rem;color:{MUTED};margin-bottom:12px;line-height:1.45}}
+.feat{{padding-bottom:10px}}
 .feat .ft{{margin:0 0 5px;font-size:.97rem;font-weight:700;color:{INK}}}
 .feat p{{margin:0;font-size:.85rem;color:{MUTED};line-height:1.5}}
 .sec{{font-size:1.12rem;font-weight:700;color:{INK};margin:6px 0 12px}}
@@ -77,11 +78,11 @@ def goto(view):
 
 def render_home():
     st.markdown("""<div class="hero">
-      <div class="h">📡 Weekly Alert Intelligence</div>
+      <div class="h">📡 Enterprise IT Alert Intelligence</div>
       <p>Compare last week's and this week's alert exports to see what changed, which groups and
       configuration items are driving the noise, and which alert patterns are most likely to return.</p>
-      <div class="chips"><span>Privacy-first</span><span>No external AI calls</span>
-      <span>Excel &amp; PDF export</span><span>Processed in memory</span></div>
+      <div class="chips"><span>No data retained</span><span>No AI services used</span>
+      <span>Recurrence risk scoring</span><span>Excel &amp; PDF reports</span></div>
     </div>""", unsafe_allow_html=True)
 
     if st.session_state.dataset:
@@ -111,7 +112,7 @@ def render_home():
             st.success(cur_file.name, icon="✅")
 
     ready = prev_file is not None and cur_file is not None
-    run, note = st.columns([1, 3])
+    run, note = st.columns([1, 3], vertical_alignment="center")
     clicked = run.button("Run analysis  →", type="primary", width="stretch", disabled=not ready)
     if not ready:
         note.caption("Upload both workbooks to enable the analysis.")
@@ -137,7 +138,7 @@ def render_home():
             st.markdown(f'<div class="feat"><div class="ft">{title}</div><p>{body}</p></div>',
                         unsafe_allow_html=True)
 
-    with st.expander("Which columns does each workbook need?"):
+    with st.expander("Which columns does each workbook need?", expanded=True):
         st.markdown(
             "Each workbook needs one row per alert, with these columns: "
             "`alert_id`, `severity`, `criticality`, `assignment_group`, `configuration_item`, "
@@ -163,7 +164,7 @@ def render_analysis():
         if st.button("←  Home", width="stretch"):
             goto("home")
     with title:
-        st.markdown(f'<div class="bar"><div><div class="t">📡 Weekly Alert Intelligence</div>'
+        st.markdown(f'<div class="bar"><div><div class="t">📡 Enterprise IT Alert Intelligence</div>'
                     f'<div class="s">Comparing <b>{d["prev_name"]}</b> → <b>{d["cur_name"]}</b></div>'
                     f'</div></div>', unsafe_allow_html=True)
 
